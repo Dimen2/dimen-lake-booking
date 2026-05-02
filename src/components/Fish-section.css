@@ -1,0 +1,160 @@
+.fish-section {
+  padding: 1rem 1rem;
+  background-color: #f5f3eb;
+}
+
+.fish-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Текст слева */
+.fish-text-content {
+  flex: 1;
+}
+
+.fish-main-title {
+  font-size: 2.5rem;
+  color: #3e4a2a;
+  font-weight: 900;
+  margin: 1.5rem 0;
+  line-height: 1.1;
+}
+
+.fish-description {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Сетка карточек справа */
+.fish-cards-grid {
+  flex: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.fish-card {
+  background: #fdfcf9;
+  border: 1px solid #d4d0c4;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Верхняя часть с фото и списком */
+.fish-card-top {
+  position: relative;
+  height: 250px;
+  padding: 1.5rem;
+  display: flex;
+}
+
+.fish-card-info {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.fish-card-title {
+  font-size: 29px;
+  font-weight: 800;
+  color: #5a6c3d;
+  margin-bottom: 1rem;
+}
+
+.fish-list {
+  list-style: none;
+  padding: 0;
+}
+
+.fish-list li {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 12px;
+}
+
+.fish-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #5a6c3d;
+}
+
+.fish-card-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 90%; /* Фото занимает часть карточки справа */
+  height: 100%;
+  object-fit: cover;
+  /* Плавный переход фото в фон */
+  mask-image: linear-gradient(to left, black 60%, transparent 100%);
+}
+
+/* Нижняя бежевая панель */
+.fish-card-bottom {
+  background: #f0ede4;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #d4d0c4;
+}
+
+.fish-price {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.fish-price b {
+  color: #5a6c3d;
+}
+
+.fish-action-btn {
+  background: #fff;
+  border: 1px solid #d4d0c4;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #5a6c3d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.fish-action-btn:hover {
+  background: #5a6c3d;
+  color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .fish-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .fish-description {
+    max-width: 100%;
+  }
+  .fish-cards-grid {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .fish-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

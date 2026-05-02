@@ -1,0 +1,187 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+  padding: 1rem;
+  /* Строку border-bottom удалили совсем */
+}
+
+/* Внутренний контейнер */
+.header-inner {
+  max-width: 1280px; /* 80rem */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Логотип */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  color: #5a6c3d;
+}
+
+.logo-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  color: #5a6c3d;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+/* Контакты */
+.contacts-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phone-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  color: #5a6c3d;
+}
+
+.phone-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.phone-number {
+  font-weight: 700;
+  color: #2c2c2c;
+  font-size: 1rem;
+}
+
+.phone-hours {
+  font-size: 0.875rem;
+  color: #6b6b6b;
+}
+
+/* Кнопка обратного звонка */
+.callback-btn {
+  background: transparent;
+  border: 1px solid #5a6c3d;
+  color: #5a6c3d;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.callback-btn:hover {
+  background-color: #5a6c3d;
+  color: #ffffff;
+}
+
+/* Адаптив для скрытия текста на мобилках */
+@media (max-width: 640px) {
+  .phone-hours {
+    display: none;
+  }
+}
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: transparent;
+  padding: 1rem;
+  /* Строку border-bottom удалили совсем */
+}
+
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Логотип */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  color: #ffffff; /* Белый цвет для прозрачного фона */
+}
+
+.logo-text {
+  color: #ffffff; /* Белый текст */
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+/* Контакты */
+.phone-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phone-icon {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+}
+
+.phone-number {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.phone-hours {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Кнопка */
+.callback-btn {
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.callback-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media (max-width: 640px) {
+  .phone-hours { display: none; }
+}

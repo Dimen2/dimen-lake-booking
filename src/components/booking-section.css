@@ -1,0 +1,421 @@
+/* Основной контейнер секции */
+.booking-section {
+  position: relative;
+  z-index: 10;
+  /* Наложение на баннер: поднимаем карточку вверх */
+  margin-top: -140px; 
+  padding: 0 1rem 5rem;
+  /* Цвет фона страницы, который идет после баннера */
+  background-color: #f5f3eb; 
+}
+
+/* Эффект тумана (плавный переход от фото к фону секции) */
+.booking-section::before {
+  content: "";
+  position: absolute;
+  /* Располагаем точно над карточкой */
+  top: -140px; 
+  left: 0;
+  width: 100%;
+  height: 140px;
+  /* Градиент от прозрачного к бежевому */
+  background: linear-gradient(to bottom, transparent, #f5f3eb);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.booking-card {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #fdfcf9;
+  border-radius: 2.5rem;
+  border: 1px solid #d4d0c4;
+  padding: 3rem;
+  /* Тень, чтобы карточка "парила" над фоном */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 5;
+}
+
+/* СЕТКА 2х2: Верх (Карта 1.7 / Календарь 1) */
+.grid-top {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+  align-items: start;
+}
+
+/* СЕТКА 2х2: Низ (Цены 1 / Форма 1) */
+.grid-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.booking-title {
+  font-size: 0.9rem; /* Немного уменьшил, так как в рамке текст выглядит крупнее */
+  font-weight: 800;
+  color: #5a6c3d;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  /* Новые свойства для полупрозрачной ячейки */
+  display: inline-block;        /* Чтобы рамка была только по ширине текста */
+  background: rgba(90, 108, 61, 0.1); /* Полупрозрачный цвет (совпадает с цветом текста) */
+  padding: 6px 12px;           /* Отступы внутри ячейки */
+  border-radius: 8px;          /* Скругление углов */
+  border: 1px solid rgba(90, 108, 61, 0.15); /* Еле заметная граница для четкости */
+}
+/* КАРТА (Большая) */
+.map-container-styled {
+  height: 520px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e8e4d8;
+  background: #eeebe0;
+}
+
+.map-legend {
+  display: flex;
+  gap: 25px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+.legend-dot.available { background: #5a6c3d; }
+.legend-dot.occupied { background: #bc4b4b; }
+
+/* КАЛЕНДАРЬ (Компактный) */
+.calendar-wrapper {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.current-month-year { font-weight: 800; color: #333; }
+
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.day-header { font-size: 0.75rem; font-weight: 700; color: #bbb; text-align: center; padding-bottom: 10px; }
+.day-header.weekend { color: #5a6c3d; }
+
+.calendar-day {
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+.calendar-day.selected { background: #5a6c3d; color: white; font-weight: 800; }
+
+/* ИНФО-БАДЖИ */
+.selection-info-inline {
+  display: flex;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.info-badge {
+  background: #f0ede4;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+}
+
+.info-badge b { color: #5a6c3d; }
+
+/* ТАБЛИЦА ЦЕН */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.price-table th { background: #f0ede4; padding: 1.2rem; text-align: left; color: #5a6c3d; font-weight: 800; }
+.price-table td { padding: 1.2rem; border-top: 1px solid #f0f0f0; }
+.price-val { font-weight: 800; color: #333; text-align: right; }
+
+/* ФОРМА ЗАЯВКИ */
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.input-group { position: relative; }
+.input-group input {
+  width: 100%;
+  padding: 1.1rem 1rem 1.1rem 3rem;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  outline: none;
+}
+.input-group input:focus { border-color: #5a6c3d; }
+.input-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #aaa; }
+
+/* КНОПКИ */
+.btn-main, .submit-btn {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-main, .submit-btn { background: #5a6c3d; color: white;  margin-top: 10px;}
+.btn-main:hover, .submit-btn:hover { background: #4a5932; transform: translateY(-2px); }
+
+/* Мобильная версия */
+@media (max-width: 1100px) {
+  .grid-top, .grid-bottom { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+.booking-info-text{
+  margin: 0px 0px 22px;
+}
+
+/* Переключатель типа рыбалки (мини) */
+.type-selector-mini {
+  display: flex;
+  gap: 10px;
+  background: #f0ede4;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.type-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #888;
+  transition: all 0.2s;
+}
+
+.type-btn.active {
+  background: white;
+  color: #5a6c3d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.type-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Синяя точка в легенде */
+.legend-dot.available-full {
+  background: #2c6e8f;
+}
+
+/* Подсветка выбранной строки в таблице цен */
+.row-highlight {
+  background-color: #f2f4ed;
+}
+.row-highlight td {
+  border-left: 3px solid #5a6c3d;
+}
+
+/* Улучшение адаптивности для инфо-баджей */
+.selection-info-inline {
+  flex-wrap: wrap;
+}
+
+/* Легенда для синих секторов */
+.legend-dot.available-full {
+  background: #2c6e8f; /* Тот самый синий цвет */
+}
+
+/* Переключатель типа */
+.type-selector-mini {
+  display: flex;
+  gap: 10px;
+  background: #f0ede4;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.type-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #888;
+  transition: all 0.2s;
+}
+
+.type-btn.active {
+  background: white;
+  color: #5a6c3d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.type-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+/* Подсветка выбранной цены */
+.row-highlight {
+  background-color: #f7f9f3;
+  border-left: 4px solid #5a6c3d;
+}
+
+/* Адаптивность для дат в бадже */
+.info-badge b {
+  word-break: break-all;
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #fdfcf9;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  border: 1px solid #d4d0c4;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  color: #5a6c3d;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.detail-item span { color: #888; }
+.detail-item strong { color: #333; font-weight: 700; }
+
+.detail-item.total {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.detail-item.total strong { color: #5a6c3d; font-weight: 900; }
+
+.modal-divider {
+  height: 1px;
+  background: #e8e4d8;
+  margin: 15px 0;
+}
+
+.btn-confirm-final {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background: #5a6c3d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-confirm-final:hover {
+  transform: scale(1.02);
+  background: #4a5932;
+}
+
+/* Синяя точка для суток */
+.legend-dot.available-full {
+  background: #2c6e8f;
+}
+
+/* Подсветка типов */
+.type-selector-mini {
+  display: flex;
+  gap: 10px;
+  background: #f0ede4;
+  padding: 5px;
+  border-radius: 12px;
+}
+
+.type-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #888;
+}
+
+.type-btn.active {
+  background: white;
+  color: #5a6c3d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}

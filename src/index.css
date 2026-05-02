@@ -1,0 +1,50 @@
+/* Дополнения к твоим стилям */
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 80px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  color: white;
+}
+
+.hero-description {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.mobile-menu-btn {
+  display: none; /* Скрываем на ПК */
+  background: none;
+  border: none;
+  color: white;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -15px); }
+}
+
+@media (max-width: 768px) {
+  .nav-menu { display: none; }
+  .mobile-menu-btn { display: block; }
+  .hero-title { font-size: 2.5rem; }
+}

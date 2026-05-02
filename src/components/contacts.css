@@ -1,0 +1,119 @@
+/* Contacts.css */
+
+/* Футер */
+.footer {
+  background-color: #5a6c3d;
+  padding: 1.5rem 1rem;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+  }
+}
+
+/* Контактна інформація */
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+}
+
+.footer-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.footer-phone {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.footer-location {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.footer-hours {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Соціальні мережі */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #ffffff;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 640px) {
+  .footer {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .footer-container {
+    gap: 1.5rem;
+  }
+
+  .footer-contact {
+    justify-content: center;
+  }
+
+  .footer-phone {
+    font-size: 0.9rem;
+  }
+
+  .footer-location {
+    font-size: 0.9rem;
+  }
+
+  .footer-hours {
+    font-size: 0.75rem;
+  }
+
+  .social-link {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .social-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}

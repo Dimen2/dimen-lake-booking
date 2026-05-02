@@ -1,0 +1,105 @@
+.features-section {
+  padding: 0rem 1rem;
+  background-color: #f5f3eb; /* Твой фирменный бежевый */
+}
+
+.features-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три колонки в ряд */
+  gap: 1.5rem;
+}
+
+.feature-card {
+  position: relative;
+  height: 450px;
+  border-radius: 1.5rem; /* Скругление как на фото */
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.feature-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Затемнение слева, чтобы текст был читабельным */
+.feature-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(245, 243, 235, 0.9) 20%, transparent 80%);
+}
+
+.feature-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Текст сверху, кнопка снизу */
+  max-width: 70%; /* Ограничиваем контент слева */
+}
+
+.feature-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #5a6c3d; /* Оливковый заголовок */
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.feature-card-desc {
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.feature-more-btn {
+  width: fit-content;
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  border: 1px solid #5a6c3d;
+  color: #333;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feature-more-btn:hover {
+  background-color: #5a6c3d;
+  color: #fff;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .features-container {
+    grid-template-columns: 1fr; /* Одна колонка на мобилках */
+  }
+  .feature-card {
+    height: 350px;
+  }
+  .feature-card-content {
+    max-width: 85%;
+  }
+}

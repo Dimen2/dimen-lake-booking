@@ -1,0 +1,132 @@
+.about-section {
+  background-color: #f5f3eb;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #d4d0c4;
+  position: relative;
+}
+
+.about-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start; /* Прижимаем контент к верху */
+  min-height: 450px;
+}
+
+/* Левый блок с текстом */
+.about-text-block {
+  flex: 1;
+  /* Добавили верхний отступ, чтобы текст был на уровне фото */
+  padding: 5rem 2rem 4rem 5rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem; /* Увеличили отступ между текстом и иконками */
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #5a6c3d;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  max-width: 450px; /* Чуть шире, чтобы влезло описание */
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Список иконок (теперь их 4) */
+.about-icons-list {
+  display: flex;
+  gap: 2rem; /* Немного уменьшили gap, чтобы 4 иконки влезли */
+  align-items: flex-start;
+  flex-wrap: wrap; /* На всякий случай для узких экранов */
+}
+
+.about-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1; /* Каждая иконка занимает равную долю */
+  max-width: 130px; /* Чуть увеличили max-width */
+  gap: 1rem;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-svg {
+  width: 50px;
+  height: 50px;
+  color: #5a6c3d;
+}
+
+.icon-title {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Правый блок с фото */
+.about-image-block {
+  flex: 1.2;
+  position: relative;
+  height: 500px; /* Увеличили высоту фото */
+  /* Сдвигаем блок вверх, чтобы он начинался раньше текста */
+  margin-top: -20px; 
+}
+
+.about-img {
+  width: 89%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Эффект мягкого перехода фото в фон слева */
+.image-overlay-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%; /* Чуть шире градиент для мягкости */
+  height: 100%;
+  background: linear-gradient(to right, #f5f3eb, transparent);
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 1024px) {
+  .about-content {
+    flex-direction: column;
+  }
+  .about-text-block {
+    padding: 3rem 2rem;
+    align-items: center;
+    text-align: center;
+  }
+  .about-icons-list {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .about-image-block {
+    width: 100%;
+    height: 300px;
+    margin-top: 0; /* Убираем сдвиг на мобильных */
+  }
+  .image-overlay-gradient {
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, #f5f3eb, transparent);
+  }
+}
